@@ -4,6 +4,6 @@
 
 import { AppRegistry } from 'react-native';
 
-import HackerNewsOfflineFirst from './app/index.js'
+import HackerNewsReaderOfflineFirst from './app/index.js'
 
-AppRegistry.registerComponent('hacker_news_offline_first', () => HackerNewsOfflineFirst);
+AppRegistry.registerComponent('hacker_news_offline_first', () => HackerNewsReaderOfflineFirst);

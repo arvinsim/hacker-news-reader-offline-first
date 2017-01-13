@@ -8,7 +8,7 @@ import store from './config/store.js';
 
 import HomeContainer from  './routes/Home/index.js';
 
-export default class HackerNewsOfflineFirst extends Component {
+export default class HackerNewsReaderOfflineFirst extends Component {
   render() {
     return (
       <Provider store={store}> 
