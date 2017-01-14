@@ -4,7 +4,7 @@ import {
     Text
 } from 'react-native'
 
-import HNHeader from '../../components/HNNavbar/index.js'
+import HNHeader from '../../components/HNHeader/index.js'
 import HNStories from '../../components/HNStories/index.js'
 
 import styles from './styles.js'
@@ -14,7 +14,7 @@ class Home extends Component {
         return (
             <View style={styles.home}>
                 <HNHeader />
-                <HNStories stories={this.props.stories} />
+                <HNStories {...this.props} />
             </View>
         );
     }

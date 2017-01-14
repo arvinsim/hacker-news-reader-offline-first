@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
   View,
   Text,
@@ -13,7 +13,7 @@ class HNStory extends Component {
   render() {
     const timeAgo = moment(this.props.story.time, 'X').fromNow()
     return (
-      <TouchableHighlight onPress={()=>{}}>
+      <TouchableHighlight onPress={this.props.onPress}>
         <View style={styles.container}>
           <View>
             <Text style={styles.athing}>
@@ -28,6 +28,18 @@ class HNStory extends Component {
       </TouchableHighlight>
     );
   }
+}
+
+HNStory.propTypes = {
+  story: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    score: PropTypes.number.isRequired,
+    time: PropTypes.number.isRequired,
+    by: PropTypes.string.isRequired,
+    descendants: PropTypes.number.isRequired,
+  }).isRequired,
+  onPress: PropTypes.func.isRequired
 }
 
 export default HNStory
