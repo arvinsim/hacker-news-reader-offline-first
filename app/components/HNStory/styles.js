@@ -9,8 +9,8 @@ const colors = {
 
 const styles = StyleSheet.create({
     container: {
-       paddingHorizontal: 10,
-       paddingBottom: 5
+        flex: 1,
+        paddingBottom: 5
     },
     rowId: {
         fontWeight: 'bold',
