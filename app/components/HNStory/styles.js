@@ -12,6 +12,10 @@ const styles = StyleSheet.create({
        paddingHorizontal: 10,
        paddingBottom: 5
     },
+    rowId: {
+        fontWeight: 'bold',
+        color: colors.text.secondary,
+    },
     athing: {
         color: colors.text.primary        
     },

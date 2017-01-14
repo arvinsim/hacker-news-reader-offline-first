@@ -17,6 +17,7 @@ class HNStory extends Component {
         <View style={styles.container}>
           <View>
             <Text style={styles.athing}>
+              <Text style={styles.rowId}>{this.props.rowId}. </Text>
               <Text style={styles.athingTitel}>{this.props.story.title}</Text>
               <Text style={styles.athingUrl}>({this.props.story.url})</Text>
             </Text>
@@ -39,6 +40,7 @@ HNStory.propTypes = {
     by: PropTypes.string.isRequired,
     descendants: PropTypes.number.isRequired,
   }).isRequired,
+  rowId: PropTypes.number.isRequired,
   onPress: PropTypes.func.isRequired
 }
 
