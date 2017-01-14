@@ -16,7 +16,7 @@ class HNHeader extends Component {
                     <Image style={styles.logoImage} source={images.logo} />
                 </View>
                 <View style={styles.main}>
-                    <View>
+                    <View style={styles.mainTitle}>
                         <Text style={styles.mainTitleText}>Hacker News</Text>
                     </View>
                     <View style={styles.mainSublinks}>

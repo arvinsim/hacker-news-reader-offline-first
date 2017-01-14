@@ -13,8 +13,12 @@ class Home extends Component {
     render() {
         return (
             <View style={styles.home}>
-                <HNHeader />
-                <HNStories {...this.props} />
+                <View style={styles.header}>
+                    <HNHeader />
+                </View>
+                <View style={styles.stories}>
+                    <HNStories {...this.props} />
+                </View>
             </View>
         );
     }

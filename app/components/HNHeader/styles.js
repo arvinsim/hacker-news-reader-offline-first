@@ -4,16 +4,26 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        backgroundColor: '#FF6600'
+        backgroundColor: '#FF6600',
+        alignItems: 'center'
     },
     logo: {
-        flex: 1
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     logoImage: {
+        borderColor: '#FFFFFF',
+        borderWidth: 1
     },
     main: {
         flex: 8,
-        flexDirection: 'column'
+        flexDirection: 'column',
+        justifyContent: 'center'
+    },
+    mainTitle: {
+        flex: 1,
+        justifyContent: 'flex-end'
     },
     mainTitleText: {
         color: '#000000',
@@ -27,11 +37,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     mainSublink: {
-        fontSize: 12
+        fontSize: 12,
+        justifyContent: 'flex-start'
     },
     authentication: {
         flex: 3,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'center'
     }
 });
 
