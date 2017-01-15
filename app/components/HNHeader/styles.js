@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     },
     mainTitleText: {
         color: '#000000',
-        fontFamily: 'Verdana, Geneva, sans-serif',
+        fontFamily: 'Verdana',
         fontWeight: 'bold',
         fontSize: 15
     },
