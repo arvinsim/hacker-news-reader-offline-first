@@ -6,6 +6,31 @@ export const REQUEST_STORIES = 'REQUEST_STORIES'
 // Action Creators
 export function requestStories() {
     return function(dispatch) {
+        fetch(hackerNewsApiEndpoints.frontPageStories)
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                const stories = data.hits.map((story) => {
+                    return {
+                        title: story.title,
+                        url: story.url,
+                        score: story.points,
+                        time: story.created_at_i,
+                        by: story.author,
+                        descendants: story.num_comments
+                    }
+                })
+
+                dispatch({
+                    type: REQUEST_STORIES,
+                    payload: {
+                        stories: stories
+                    }
+                })
+            })
+
+        /*
         fetch(hackerNewsApiEndpoints.newStories).then((response) => {
             const story = {
                 "by": "dhouston",
@@ -18,7 +43,6 @@ export function requestStories() {
                 "type": "story",
                 "url": "http://www.getdropbox.com/u/2/screencast.html"
             }
-
 
             dispatch({
                 type: REQUEST_STORIES,
@@ -35,5 +59,6 @@ export function requestStories() {
                 }
             })
         })
+        */
     }
 }
