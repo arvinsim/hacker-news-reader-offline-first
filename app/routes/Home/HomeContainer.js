@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Home from './Home.js'
-import { fetchData } from '../../actions/index.js'
+import { requestStories } from '../../actions/index.js'
 
 const mapStateToProps = (state) => {
     return {
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
             )
         },
         onComponentDidMount: () => {
-            dispatch(fetchData())
+            dispatch(requestStories())
         }
     }
 }
