@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-    Alert
-} from 'react-native'
 import Home from './Home.js'
+import { fetchData } from '../../actions/index.js'
 
 const mapStateToProps = (state) => {
     return {
@@ -18,8 +16,11 @@ const mapDispatchToProps = (dispatch) => {
                 'Story was Clicked!',
                 'You clicked on a Story item!'
             )
+        },
+        onComponentDidMount: () => {
+            dispatch(fetchData())
         }
-    } 
+    }
 }
 
 export default connect(

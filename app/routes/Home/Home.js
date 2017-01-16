@@ -10,6 +10,10 @@ import HNStories from '../../components/HNStories/index.js'
 import styles from './styles.js'
 
 class Home extends Component {
+    componentDidMount() {
+        this.props.onComponentDidMount()
+    }
+
     render() {
         return (
             <View style={styles.home}>
