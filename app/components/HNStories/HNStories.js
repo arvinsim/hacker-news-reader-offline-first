@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 
 import HNStory from '../HNStory/index.js'
-
 import styles from './styles.js'
 
 class HNStories extends Component {
@@ -29,7 +28,7 @@ class HNStories extends Component {
 
     _onRefresh() {
         this.setState({refreshing: true});
-        this.props.onRefresh().then(() => {
+        this.props.fetchListItems().then(() => {
             this.setState({refreshing: false});
         });
     }
@@ -64,7 +63,7 @@ HNStories.propTypes = {
     story: PropTypes.shape({
         onPress: PropTypes.func.isRequired
     }).isRequired,
-    onRefresh: PropTypes.func
+    fetchListItems: PropTypes.func
 }
 
 export default HNStories;

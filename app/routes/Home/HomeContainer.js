@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => {
         onComponentDidMount: () => {
             return dispatch(requestStories())
         },
-        onRefresh: () => {
+        fetchListItems: () => {
             return dispatch(requestStories())
         }
     }
