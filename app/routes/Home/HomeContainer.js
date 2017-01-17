@@ -20,7 +20,10 @@ const mapDispatchToProps = (dispatch) => {
             )
         },
         onComponentDidMount: () => {
-            dispatch(requestStories())
+            return dispatch(requestStories())
+        },
+        onRefresh: () => {
+            return dispatch(requestStories())
         }
     }
 }

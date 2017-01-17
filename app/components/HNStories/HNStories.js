@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import {
     View,
     Text,
-    ListView
+    ListView,
+    RefreshControl
 } from 'react-native';
 
 import HNStory from '../HNStory/index.js'
@@ -10,33 +11,60 @@ import HNStory from '../HNStory/index.js'
 import styles from './styles.js'
 
 class HNStories extends Component {
-  _renderRow(rowData, sectionId, rowId) {
-    const storyOnPress = this.props.story.onPress
-    const storyRowId = parseInt(rowId, 10) + 1
+    constructor(props) {
+        super(props);
+        this.state = {
+            refreshing: false
+        };
+    }
 
-    return (
-      <HNStory story={rowData} onPress={storyOnPress} rowId={storyRowId} />
-    )
-  }
+    _renderRow(rowData, sectionId, rowId) {
+        const storyOnPress = this.props.story.onPress
+        const storyRowId = parseInt(rowId, 10) + 1
 
-  render() {
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    const dataSource = ds.cloneWithRows(this.props.stories);
-    return (
-      <ListView
-        style={styles.container}
-        dataSource={dataSource}
-        renderRow={this._renderRow.bind(this)} 
-        enableEmptySections={true} />
-    );
-  }  
+        return (
+            <HNStory story={rowData} onPress={storyOnPress} rowId={storyRowId} />
+        )
+    }
+
+    _onRefresh() {
+        this.setState({refreshing: true});
+        this.props.onRefresh().then(() => {
+            this.setState({refreshing: false});
+        });
+    }
+
+    render() {
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        const dataSource = ds.cloneWithRows(this.props.stories);
+        console.log('this.props.isRefreshing: ' + this.props.isRefreshing)
+        return (
+            <ListView
+                style={styles.container}
+                dataSource={dataSource}
+                enableEmptySections={true}
+                renderRow={this._renderRow.bind(this)}
+                refreshControl={
+                  <RefreshControl
+                    refreshing={this.state.refreshing}
+                    onRefresh={this._onRefresh.bind(this)}
+                    tintColor="#FFFFFF"
+                    title="Loading..."
+                    titleColor="#FFFFFF"
+                    colors={['#FFFFFF']}
+                  />
+                }
+            />
+        );
+    }
 }
 
 HNStories.propTypes = {
-  stories: PropTypes.array.isRequired,
-  story: PropTypes.shape({
-    onPress: PropTypes.func.isRequired
-  }).isRequired
+    stories: PropTypes.array.isRequired,
+    story: PropTypes.shape({
+        onPress: PropTypes.func.isRequired
+    }).isRequired,
+    onRefresh: PropTypes.func
 }
 
 export default HNStories;
