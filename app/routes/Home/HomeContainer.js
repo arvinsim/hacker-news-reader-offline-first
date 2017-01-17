@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Alert } from 'react-native'
+
 import Home from './Home.js'
 import { requestStories } from '../../actions/index.js'
 

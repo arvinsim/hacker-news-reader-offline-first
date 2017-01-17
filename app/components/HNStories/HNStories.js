@@ -26,7 +26,8 @@ class HNStories extends Component {
       <ListView
         style={styles.container}
         dataSource={dataSource}
-        renderRow={this._renderRow.bind(this)} />
+        renderRow={this._renderRow.bind(this)} 
+        enableEmptySections={true} />
     );
   }  
 }
