@@ -7,7 +7,7 @@ import { requestStories } from '../../actions/index.js'
 
 const mapStateToProps = (state) => {
     return {
-        stories: state.stories
+        stories: state.general.stories,
     };
 };
 

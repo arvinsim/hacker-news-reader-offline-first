@@ -1,18 +1,10 @@
-import { REQUEST_STORIES } from '../actions/index.js'
+import { combineReducers } from 'redux'
+import navigationReducer from './navigation.js'
+import generalReducer from './general.js'
 
-const initialState = {
-    stories: []
-};
-
-const rootReducer = (state = initialState, action) => {
-    switch(action.type) {
-        case REQUEST_STORIES:
-            return Object.assign({}, state, {
-                stories: action.payload.stories
-            })
-        default:
-            return state
-    }
-}
+const rootReducer = combineReducers({
+    navigation: navigationReducer,
+    general: generalReducer
+})
 
 export default rootReducer
