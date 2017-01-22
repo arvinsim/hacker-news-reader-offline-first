@@ -1,7 +1,7 @@
 import { NavigationExperimental } from 'react-native'
 import {
-    NAVIGATION_PUSH,
-    NAVIGATION_POP
+    NAVIGATE_TO_HN_STORY_DETAILS,
+    NAVIGATE_TO_HOME
 } from '../actions/index.js'
 
 const {
@@ -11,15 +11,17 @@ const {
 
 const initialState = {
     index: 0,
-    key: 'App',
-    routes: [{key: 'Home'}]
+    routes: [
+        {key: 'Home'}
+    ]
 }
 
 const navigationReducer = (state = initialState, action) => {
     switch(action.type) {
-        case NAVIGATION_PUSH:
-            return NavigationStateUtils.push(state, {key: action.key})
-        case NAVIGATION_POP:
+        case NAVIGATE_TO_HN_STORY_DETAILS:
+            const route = { key: action.payload.key }
+            return NavigationStateUtils.push(state, route)
+        case NAVIGATE_TO_HOME:
             return state.index > 0 ? NavigationStateUtils.pop(state) : state
         default:
             return state

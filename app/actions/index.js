@@ -2,8 +2,8 @@ import { fetchStories } from '../lib/api.js'
 
 // Actions
 export const REQUEST_STORIES = 'REQUEST_STORIES'
-export const NAVIGATION_PUSH = 'NAVIGATION_PUSH'
-export const NAVIGATION_POP = 'NAVIGATION_POP'
+export const NAVIGATE_TO_HN_STORY_DETAILS = 'NAVIGATE_TO_HN_STORY_DETAILS'
+export const NAVIGATE_TO_HOME = 'NAVIGATE _TO_HOME'
 
 // Action Creators
 export function requestStories() {
@@ -20,5 +20,23 @@ export function requestStories() {
                 console.log(error)
                 return Promise.reject(error)
             })
+    }
+}
+
+export function navigateToHNStoryDetails() {
+    return {
+        type: NAVIGATE_TO_HN_STORY_DETAILS,
+        payload: {
+            key: 'HNStoryDetails'
+        }
+    }
+}
+
+export function navigateToHome() {
+    return {
+        type: NAVIGATE_TO_HOME,
+        payload: {
+            key: 'Home'
+        }
     }
 }

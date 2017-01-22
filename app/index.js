@@ -13,7 +13,7 @@ class HackerNewsReaderOfflineFirst extends Component {
   render() {
     return (
       <Provider store={store}> 
-        <DetailsContainer />
+        <HomeContainer />
       </Provider>
     );
   }

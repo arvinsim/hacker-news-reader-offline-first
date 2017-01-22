@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 import { Alert } from 'react-native'
 
 import Home from './Home.js'
-import { requestStories } from '../../actions/index.js'
+import {
+    requestStories,
+    navigateToHNStoryDetails
+} from '../../actions/index.js'
 
 const mapStateToProps = (state) => {
     return {
@@ -14,10 +17,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         story: {
-            onPress: () => Alert.alert(
-                'Story was Clicked!',
-                'You clicked on a Story item!'
-            )
+            //onPress: () => Alert.alert(
+            //    'Story was Clicked!',
+            //    'You clicked on a Story item!'
+            //)
+            onPress: navigateToHNStoryDetails
         },
         onComponentDidMount: () => {
             return dispatch(requestStories())
