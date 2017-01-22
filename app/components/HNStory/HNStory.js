@@ -8,7 +8,6 @@ import moment from 'moment'
 
 import styles from './styles.js'
 
-
 class HNStory extends Component {
   render() {
     const timeAgo = moment(this.props.story.time, 'X').fromNow()

@@ -6,14 +6,17 @@ import {
 
 import store from './config/store.js';
 
-import HomeContainer from  './routes/Home/index.js';
+import HomeContainer from './routes/Home/index.js';
+import DetailsContainer from './routes/Details/index.js';
 
-export default class HackerNewsReaderOfflineFirst extends Component {
+class HackerNewsReaderOfflineFirst extends Component {
   render() {
     return (
       <Provider store={store}> 
-        <HomeContainer />
+        <DetailsContainer />
       </Provider>
     );
   }
 }
+
+export default HackerNewsReaderOfflineFirst

@@ -5,27 +5,23 @@ import {
 } from 'react-native'
 
 import HNHeader from '../../components/HNHeader/index.js'
-import HNStories from '../../components/HNStories/index.js'
+import HNStoryDetails from '../../components/HNStoryDetails/index.js'
 
 import styles from './styles.js'
 
-class Home extends Component {
-    componentDidMount() {
-        this.props.onComponentDidMount()
-    }
-
+class Details extends Component {
     render() {
         return (
-            <View style={styles.home}>
+            <View style={styles.details}>
                 <View style={styles.header}>
                     <HNHeader />
                 </View>
-                <View style={styles.stories}>
-                    <HNStories {...this.props} />
+                <View style={styles.storyDetails}>
+                    <HNStoryDetails {...this.props} />
                 </View>
             </View>
         )
     }
 }
 
-export default Home
+export default Details
