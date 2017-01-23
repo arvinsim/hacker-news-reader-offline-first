@@ -3,17 +3,21 @@ import { Provider } from 'react-redux';
 import {
   View
 } from 'react-native';
+import {
+  NavigationProvider,
+  StackNavigation
+} from '@exponent/ex-navigation'
 
-import store from './config/store.js';
-
-import HomeContainer from './routes/Home/index.js';
-import DetailsContainer from './routes/Details/index.js';
+import store from './config/store.js'
+import router from './config/router.js'
 
 class HackerNewsReaderOfflineFirst extends Component {
   render() {
     return (
       <Provider store={store}> 
-        <HomeContainer />
+        <NavigationProvider router={router}>
+          <StackNavigation initialRoute={router.getRoute('home')} />
+        </NavigationProvider>
       </Provider>
     );
   }

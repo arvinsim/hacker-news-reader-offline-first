@@ -7,6 +7,7 @@ import {
     requestStories,
     navigateToHNStoryDetails
 } from '../../actions/index.js'
+import router from '../../config/router.js'
 
 const mapStateToProps = (state) => {
     return {
@@ -17,11 +18,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         story: {
-            //onPress: () => Alert.alert(
-            //    'Story was Clicked!',
-            //    'You clicked on a Story item!'
-            //)
-            onPress: navigateToHNStoryDetails
+            onPress: function() { 
+                this.props.navigator.push(router.getRoute('details')) 
+            }
         },
         onComponentDidMount: () => {
             return dispatch(requestStories())

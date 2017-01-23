@@ -18,7 +18,7 @@ class HNStories extends Component {
     }
 
     _renderRow(rowData, sectionId, rowId) {
-        const storyOnPress = this.props.story.onPress
+        const storyOnPress = this.props.story.onPress.bind(this) 
         const storyRowId = parseInt(rowId, 10) + 1
 
         return (
@@ -36,7 +36,6 @@ class HNStories extends Component {
     render() {
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         const dataSource = ds.cloneWithRows(this.props.stories);
-        console.log('this.props.isRefreshing: ' + this.props.isRefreshing)
         return (
             <ListView
                 style={styles.container}
