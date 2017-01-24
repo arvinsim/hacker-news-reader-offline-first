@@ -4,6 +4,7 @@ import {
   View
 } from 'react-native';
 import {
+  NavigationContext,
   NavigationProvider,
   StackNavigation
 } from '@exponent/ex-navigation'
@@ -11,11 +12,16 @@ import {
 import store from './config/store.js'
 import router from './config/router.js'
 
+const navigationContext = new NavigationContext({
+  router: router,
+  store: store,
+})
+
 class HackerNewsReaderOfflineFirst extends Component {
   render() {
     return (
       <Provider store={store}> 
-        <NavigationProvider router={router}>
+        <NavigationProvider router={navigationContext}>
           <StackNavigation initialRoute={router.getRoute('home')} />
         </NavigationProvider>
       </Provider>
