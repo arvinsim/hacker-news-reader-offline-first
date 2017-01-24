@@ -9,7 +9,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {}
+    return {
+        onGoBack: function() {
+            this.props.navigator.pop()
+        }
+    }
 }
 
 export default connect(

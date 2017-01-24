@@ -18,7 +18,7 @@ class HNStoryDetails extends Component {
                 </View>
                 <View>
                     <Button
-                        onPress={this.props.onGoBack}
+                        onPress={this.props.onGoBack.bind(this)}
                         title="Go Back"
                         color="#841584"
                         accessibilityLabel="Go Back"
