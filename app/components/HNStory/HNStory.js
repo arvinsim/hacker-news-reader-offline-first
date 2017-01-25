@@ -12,7 +12,7 @@ class HNStory extends Component {
   render() {
     const timeAgo = moment(this.props.story.time, 'X').fromNow()
     return (
-      <TouchableHighlight onPress={this.props.onPress}>
+      <TouchableHighlight onPress={this.props.onPress.bind(this, this.props.story)}>
         <View style={styles.container}>
           <View>
             <Text style={styles.athing}>
@@ -43,4 +43,4 @@ HNStory.propTypes = {
   onPress: PropTypes.func.isRequired
 }
 
-export default HNStory
+export default HNStory 

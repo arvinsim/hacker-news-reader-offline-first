@@ -8,13 +8,15 @@ import styles from './styles.js'
 
 class HNStoryDetails extends Component {
     render() {
+        console.log('PROPS')
+        console.log(this.props)
         return (
             <View style={styles.container}>
                 <View>
-                    <Text style={styles.title}>Title</Text>
+                    <Text style={styles.title}>{this.props.details.title}</Text>
                 </View>
                 <View>
-                    <Text style={styles.content}>Content</Text>
+                    <Text style={styles.content}>{this.props.details.url}</Text>
                 </View>
                 <View>
                     <Button

@@ -18,4 +18,4 @@ const store = createStoreWithNavigation(
 )
 persistStore(store, { storage: AsyncStorage })
 
-export default store;
+export default store

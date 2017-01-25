@@ -18,7 +18,7 @@ class HNStories extends Component {
     }
 
     _renderRow(rowData, sectionId, rowId) {
-        const storyOnPress = this.props.story.onPress.bind(this) 
+        const storyOnPress = this.props.story.onPress.bind(this, this.props.navigator)
         const storyRowId = parseInt(rowId, 10) + 1
 
         return (

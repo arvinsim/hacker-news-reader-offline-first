@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Alert } from 'react-native'
+import { NavigationActions } from '@exponent/ex-navigation'
 
 import Home from './Home.js'
-import {
-    requestStories,
-    navigateToHNStoryDetails
-} from '../../actions/index.js'
+import { requestStories } from '../../actions/index.js'
+import store from '../../config/store.js'
 import router from '../../config/router.js'
 
 const mapStateToProps = (state) => {
     return {
         stories: state.general.stories,
-    };
-};
+    }
+}
 
 const mapDispatchToProps = (dispatch) => {
     return {
         story: {
-            onPress: function() { 
-                this.props.navigator.push(router.getRoute('details')) 
+            onPress: function(navigator, story) { 
+                const data = { details: story }
+                navigator.push(router.getRoute('details', data)) 
             }
         },
         onComponentDidMount: () => {
@@ -34,4 +34,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Home);
+)(Home)
