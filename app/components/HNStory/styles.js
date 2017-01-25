@@ -10,21 +10,30 @@ const colors = {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingBottom: 5
+        flexDirection: 'row',
+        paddingBottom: 5,
     },
     rowId: {
+        flex: 1
+    },
+    rowIdText: {
         fontWeight: 'bold',
         color: colors.text.secondary,
     },
-    athing: {
+    detailsContainer: {
+        flex: 15 
+    },
+    athingText: {
         color: colors.text.primary        
     },
     athingTitle: {
-        fontWeight: 'bold',
-        fontSize: 15
+        fontSize: 14 
     },
     athingUrl: {
         fontSize: 11
+    },
+    subtextContainer: {
+        flex: 1
     },
     subtext: {
         color: colors.text.secondary,
