@@ -34,7 +34,7 @@ class HNStory extends Component {
 HNStory.propTypes = {
   story: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
+    url: PropTypes.string,
     score: PropTypes.number.isRequired,
     time: PropTypes.number.isRequired,
     by: PropTypes.string.isRequired,
