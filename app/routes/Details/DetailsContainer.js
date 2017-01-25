@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Alert } from 'react-native'
 
 import Details from './Details.js'
+import { goToHome } from '../../actions/index.js'
 
 const mapStateToProps = (state) => {
     return {};
@@ -10,9 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onGoBack: function() {
-            this.props.navigator.pop()
-        }
+        onGoBack: goToHome
     }
 }
 

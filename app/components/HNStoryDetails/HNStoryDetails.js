@@ -8,8 +8,6 @@ import styles from './styles.js'
 
 class HNStoryDetails extends Component {
     render() {
-        console.log('PROPS')
-        console.log(this.props)
         return (
             <View style={styles.container}>
                 <View>
@@ -20,7 +18,7 @@ class HNStoryDetails extends Component {
                 </View>
                 <View>
                     <Button
-                        onPress={this.props.onGoBack.bind(this)}
+                        onPress={this.props.onGoBack.bind(this, this.props.navigator)}
                         title="Go Back"
                         color="#841584"
                         accessibilityLabel="Go Back"

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {
     View,
-    Text
+    Text,
 } from 'react-native'
 
 import HNHeader from '../../components/HNHeader/index.js'
@@ -12,6 +12,14 @@ import styles from './styles.js'
 class Home extends Component {
     componentDidMount() {
         this.props.onComponentDidMount()
+    }
+
+    static route = {
+        navigationBar: {
+            title: 'Home',
+            visible: false,
+            // renderTitle: (route, props) => <HNHeader />,
+        }
     }
 
     render() {

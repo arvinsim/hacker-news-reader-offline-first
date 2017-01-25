@@ -4,9 +4,7 @@ import { Alert } from 'react-native'
 import { NavigationActions } from '@exponent/ex-navigation'
 
 import Home from './Home.js'
-import { requestStories } from '../../actions/index.js'
-import store from '../../config/store.js'
-import router from '../../config/router.js'
+import { requestStories, goToDetails } from '../../actions/index.js'
 
 const mapStateToProps = (state) => {
     return {
@@ -16,12 +14,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        story: {
-            onPress: function(navigator, story) { 
-                const data = { details: story }
-                navigator.push(router.getRoute('details', data)) 
-            }
-        },
+        story: { onPress: goToDetails },
         onComponentDidMount: () => {
             return dispatch(requestStories())
         },

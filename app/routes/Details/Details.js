@@ -10,6 +10,13 @@ import HNStoryDetails from '../../components/HNStoryDetails/index.js'
 import styles from './styles.js'
 
 class Details extends Component {
+    static route = {
+        navigationBar: {
+            title: 'Details',
+            visible: false,
+        }
+    }
+
     render() {
         return (
             <View style={styles.details}>
